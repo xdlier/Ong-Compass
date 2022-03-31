@@ -1,0 +1,48 @@
+package uol.compass.ong.services;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.ActiveProfiles;
+import uol.compass.ong.entities.Usuario;
+import uol.compass.ong.repository.UsuarioRepository;
+
+import java.util.List;
+
+import static org.mockito.Mockito.when;
+
+@ActiveProfiles("test")
+@ExtendWith(MockitoExtension.class)
+public class UsuarioServiceTest {
+
+    @InjectMocks
+    private UsuarioService usuarioService;
+
+    @Mock
+    private UsuarioRepository usuarioRepository;
+
+    @Test
+    void findAll_withSuccess(){
+        when(usuarioRepository.findAll()).thenReturn(List.of(new Usuario()));
+
+        var listAll = usuarioService.findAll();
+
+        Assertions.assertEquals(listAll.size(), 1);
+    }
+    
+//    @ParameterizedTest
+//    @ValueSource(longs = {1,2,3})
+//    void findById_withSuccess(long id){
+//        when(usuarioRepository.findById(id)).thenReturn(new Usuario());
+//
+//        var user = usuarioService.findById(id);
+//
+//        Assertions.assertEquals(user.getId_Usuario, id);
+//    }
+
+}
