@@ -34,9 +34,6 @@ public class UsuarioService {
 		return new UsuarioDTO(usuarioObj);
 	}
 	
-	
-	
-	
 	public static List<UsuarioDTO> instanciaListaUsuarioDTO(List<Usuario> list) {
 		List<UsuarioDTO> listDTO = new ArrayList<>();
 		for (Usuario usuario : list) {
@@ -51,7 +48,6 @@ public class UsuarioService {
 			
 			listDTO.add(dto);
 		}
-		
 		return listDTO;
 	}
 
